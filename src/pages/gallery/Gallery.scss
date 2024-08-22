@@ -1,0 +1,24 @@
+.main-image{
+    width: 100%;
+    height: 650px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.main-image-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+   
+}
+
+.main-image-info h1{
+    margin: 0;
+    font-weight: 300;
+    font-size: 1.8em;
+}
+
+.main-image-info a{
+    font-size: 18px;
+    color: var(--main-text-color);
+}

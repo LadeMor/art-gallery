@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import "./Header.scss";
 
 import iconRight from "../../assets/icons/arrow-right-1.svg";
-
-const animationClass = "underline-animation";
+import { Link } from "react-router-dom";
 
 const Header = () => {
 
@@ -20,53 +19,27 @@ const Header = () => {
     }
 
     const links = [
-        { label: "Gallery", href: "#" },
-        { label: "Artists", href: "#" },
-        { label: "About me", href: "#" },
+        { label: "Gallery", to: "/" },
+        { label: "Artists", to: "/artists" },
+        { label: "About me", to: "/about-me" },
     ]
 
     return (
         <header>
             <h1>Art | Gallery</h1>
             <div className="header-links">
-                {/* <div className="header-link-wrapper"
-                    onMouseOver={onLinkMouseOver}
-                    onMouseOut={onLinkMouseOut}
-                >
-                    <span className="header-link-item">
-                        <h1><a href="#">Gallery</a></h1>
-                        <img src={iconRight} />
-                    </span>
-                    <div className={`header-underline ${animation}`}></div>
-                </div>
-                <div className="header-link-wrapper"
-                    onMouseOver={onLinkMouseOver}
-                    onMouseOut={onLinkMouseOut}
-                >
-                    <span className="header-link-item">
-                        <h1><a href="#">Artists</a></h1>
-                        <img src={iconRight} />
-                    </span>
-                    <div className={`header-underline ${animation}`}></div>
-                </div>
-
-                <div className="header-link-wrapper"
-                    onMouseOver={onLinkMouseOver}
-                    onMouseOut={onLinkMouseOut}
-                >
-                    <span className="header-link-item">
-                        <h1><a href="#">About me</a></h1>
-                        <img src={iconRight} />
-                    </span>
-                    <div className={`header-underline ${animation}`}></div>
-                </div> */}
                 {links.map((item, index) => (
                     <div className="header-link-wrapper"
                         onMouseOver={() => onLinkMouseOver(index)}
                         onMouseOut={onLinkMouseOut}
+                        key={index}
                     >
                         <span className="header-link-item">
-                            <h1><a href={item.href}>{item.label}</a></h1>
+                            <h1>
+                                <Link to={item.to}>
+                                    {item.label}
+                                </Link>
+                            </h1>
                             <img src={iconRight} />
                         </span>
                         <div className={`header-underline ${index === activeIndex ? "underline-animation" : null}`}></div>
