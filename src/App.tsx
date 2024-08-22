@@ -9,8 +9,6 @@ import AboutMe from './pages/about-me/AboutMe';
 
 function App() {
   return (
-      <div className='container'>
-        <div className='main-wrapper'>
           <Router>
             <Header/>
             <Routes>
@@ -19,8 +17,6 @@ function App() {
               <Route path="/about-me" element={<AboutMe/>}/>
             </Routes>
           </Router>
-        </div>
-      </div>
   );
 }
 

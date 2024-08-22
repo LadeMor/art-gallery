@@ -22,3 +22,31 @@
     font-size: 18px;
     color: var(--main-text-color);
 }
+
+#preview-image{
+    margin-bottom: 30px;
+}
+
+#image-slider{
+    background-color: var(--secondary-bg-color);
+}
+
+#image-slider h1{
+    font-size: 90px;
+    font-weight: 200;
+    margin: 0;
+}
+
+.slider-image{
+    max-width: 800px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.slick-slide {
+    margin: 0 10px; /* Задайте нужный отступ */
+}
+
+.slick-list {
+    margin: 0 -10px; /* Задайте отрицательный отступ, чтобы компенсировать внешний отступ слайдов */
+}
