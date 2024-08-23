@@ -1,7 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Gallery.scss";
-// import { Swiper, SwiperSlide } from 'swiper/react';
-// import 'swiper/css';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -43,6 +41,8 @@ const PrevArrow = (props: any) => {
 
 const Gallery = () => {
 
+    const [currentAnimClass, setCurrentAnimClass] = useState("");
+
     const settings = {
         className: "slider variable-width",
         dots: true,
@@ -56,11 +56,68 @@ const Gallery = () => {
 
     };
 
+    const onMainImageMouseOver = () => {
+        setCurrentAnimClass("main-image-title-animation-show");
+    }
+
+    const onMainImageMouseOut = () => {
+        setCurrentAnimClass("main-image-title-animation-hide");
+    }
+
+    const sliderList = [
+        {
+            label: "Gods utopia",
+            url: slide1,
+            artist: "John Perziy"
+        },
+        {
+            label: "Gods utopia",
+            url: slide2,
+            artist: "John Perziy"
+        },
+        {
+            label: "Gods utopia",
+            url: slide3,
+            artist: "John Perziy"
+        },
+        {
+            label: "Gods utopia",
+            url: slide4,
+            artist: "John Perziy"
+        },
+        {
+            label: "Gods utopia",
+            url: slide5,
+            artist: "John Perziy"
+        },
+    ]
+
+    type ID = number | null;
+
+    const [currentIndex, setCurrentIndex] = useState<ID>(null);
+
+    const onSliderImageOver = (index: number) =>{
+        setCurrentIndex(index);
+    }
+
+    const onSliderImageOut = () =>{
+        setCurrentIndex(null);
+    }
+
     return (
         <>
             <section id="preview-image">
                 <Container>
-                    <img className="main-image" src={mainImage} />
+                    <div className="main-image-wrapper"
+                        onMouseOver={onMainImageMouseOver}
+                        onMouseOut={onMainImageMouseOut}>
+                        <img className="main-image" src={mainImage} />
+                        <div
+                            className={`main-image-title ${currentAnimClass}`}>
+                            <h1>Spring mountain</h1>
+                            <a href="#">View Samuel Gordon artist</a>
+                        </div>
+                    </div>
                     <div className="main-image-info">
                         <h1>Explore Art gallery online<br />by Serhii Piatko and mark your favorite artworks now</h1>
                         <a href="#">View artists</a>
@@ -69,17 +126,34 @@ const Gallery = () => {
             </section>
             <section id="image-slider">
                 <Container>
-                    <h1>Latest</h1>
+                    <h1 className="image-slider-main-title">Latest</h1>
                     <div className="slider-container">
                         <Slider {...settings}>
-                            <img src={slide1} className="slider-image" />
-                            <img src={slide2} className="slider-image" />
-                            <img src={slide3} className="slider-image" />
-                            <img src={slide4} className="slider-image" />
-                            <img src={slide5} className="slider-image" />
+                            {sliderList.map((item, index) => (
+                                <div className="main-image-wrapper"
+                                    key={index}
+                                    onMouseOver={() => onSliderImageOver(index)}
+                                    onMouseOut={onMainImageMouseOut}>
+                                    <img className="slider-image" src={item.url} />
+                                    <div
+                                        className={`slider-image-title ${currentIndex === index ? "main-image-title-animation-show" : "main-image-title-animation-hide"}`}>
+                                        <h1>{item.label}</h1>
+                                        <a href="#">View {item.artist} artist</a>
+                                    </div>
+                                </div>
+                            ))}
                         </Slider>
                     </div>
                 </Container>
+            </section>
+            <section id="artists">
+                <Container>
+                    <h1>Artists</h1>
+                    <h1>Artists</h1>
+                    <h1>Artists</h1>
+                    <h1>Artists</h1>
+                </Container>
+
             </section>
         </>
     );
