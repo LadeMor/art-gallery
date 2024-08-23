@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./Gallery.scss";
 import Slider from "react-slick";
+import Container from "../../components/container/Container";
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
 
 import mainImage from "../../assets/images/birmingham-museums-trust-wKlHsooRVbg-unsplash.jpg";
 
@@ -15,7 +16,13 @@ import slide5 from "../../assets/images/slider/slide5.jpg";
 
 import nextSlideArrow from "../../assets/icons/slider-controll/next.svg";
 import prevSlideArrow from "../../assets/icons/slider-controll/prev.svg";
-import Container from "../../components/container/Container";
+
+import eric_orr from "../../assets/images/artists/ Eric_Orr.webp";
+import grace_hartigan from "../../assets/images/artists/ grace_hartigan.webp";
+import claes_odenburg from "../../assets/images/artists/Claes_Oldenburg.webp";
+import judi_chicago from "../../assets/images/artists/Judy_Chicago.webp";
+import mohsen_vaziri from "../../assets/images/artists/Mohsen_Vaziri_Moghaddam.webp";
+import salvador_dali from "../../assets/images/artists/Salvador_Dalí.webp";
 
 const NextArrow = (props: any) => {
     const { className, style, onClick } = props;
@@ -104,6 +111,8 @@ const Gallery = () => {
         setCurrentIndex(null);
     }
 
+
+
     return (
         <>
             <section id="preview-image">
@@ -148,10 +157,33 @@ const Gallery = () => {
             </section>
             <section id="artists">
                 <Container>
-                    <h1>Artists</h1>
-                    <h1>Artists</h1>
-                    <h1>Artists</h1>
-                    <h1>Artists</h1>
+                    <div className="artists-list-wrapper">
+                        <hr/>
+                        <div className="artists-card-row">
+                                <div className="artists-card">
+                                    <img src={eric_orr} className="artists-card-image"/>
+                                    <div className="artists-card-info">
+                                        <div>
+                                            <h3>(Eric Orr)</h3>
+                                            <p>Eric Orr was one of the pioneering figures of the Light and Space movement.</p>
+                                        </div>
+                                        <a href="#">View more</a>
+                                    </div>
+                                </div>
+                                <div className="artists-card">
+                                    <img src={grace_hartigan} className="artists-card-image"/>
+                                    <div className="artists-card-info">
+                                       <div>
+                                            <h3>(Grace Hartigan)</h3>
+                                            <p>Critics and historians have called Grace Hartigan both a second-generation Abstract Expressionist painter and a forebear of Pop art, though she was not satisfied with either categorization.</p>
+                                       </div>
+                                        <a href="#">View more</a>
+                                    </div>
+                                </div>
+                        </div>
+                        <hr/>
+                        
+                    </div>
                 </Container>
 
             </section>

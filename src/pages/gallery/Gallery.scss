@@ -143,4 +143,39 @@
 
 #artists{
     background-color: var(--secondary-bg-color);
+    padding-top: 30px;
+}
+
+.artists-card{
+    flex:1;
+    display:flex;
+    flex-direction: row;
+    align-items: start;
+    gap: 20px;
+}
+
+.artists-card-row{
+    display: flex;
+}
+
+.artists-card-image{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.artists-card-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.artists-card-info a{
+    color:var(--main-text-color);
+    font-size: 18px;
+}
+
+.artists-card-info h3{
+    margin: 0;
 }
