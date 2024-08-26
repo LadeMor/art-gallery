@@ -90,7 +90,7 @@ const Gallery = () => {
         {
             label: "Gods utopia",
             url: slide4,
-            artist: "John Perziy"
+            artist: "John Perzi"
         },
         {
             label: "Gods utopia",
