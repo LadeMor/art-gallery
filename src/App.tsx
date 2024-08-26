@@ -6,6 +6,7 @@ import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 import Gallery from './pages/gallery/Gallery';
 import ArtistsPage from './pages/artists-page/ArtistsPage';
 import AboutMe from './pages/about-me/AboutMe';
+import Footer from './components/footer/Footer';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
               <Route path="/artists" element={<ArtistsPage/>}/>
               <Route path="/about-me" element={<AboutMe/>}/>
             </Routes>
+            <Footer/>
           </Router>
   );
 }
