@@ -1,29 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./Footer.scss";
 
 import Container from "../container/Container";
 
 const Footer = () => {
-    return(
+
+    type ID = null | number;
+
+    const [currentIndex, setCurrentIndex] = useState<ID>(null);
+
+    const onFooterMouseOver = (index: ID) => {
+        setCurrentIndex(index);
+    }
+
+    const onFooterMouseOut = () => {
+        setCurrentIndex(null);
+    }
+
+    const footerLinksList = [
+        {
+            title: "Follow",
+            links: [
+                { label: "Instagram", href: "#" },
+                { label: "LinkedIn", href: "#" },
+            ]
+        },
+        {
+            title: "Help",
+            links: [
+                { label: "Terms of use", href: "#" },
+                { label: "Support", href: "#" },
+            ]
+        },
+        {
+            title: "Contact",
+            links: [
+                { label: "sergpyatko@gmail.com", href: "#" },
+                { label: "LinkedIn", href: "#" },
+            ]
+        },
+    ]
+
+    return (
         <Container>
             <footer>
                 <div className="contacts-wrapper">
-                    <div className="footer-block">
-                        <h1>Follow</h1>
-                        <a href="#">Instagram</a>
-                        <a href="#">LinkedIn</a>
-                    </div>
-                    <div className="footer-block">
-                        <h1>Help</h1>
-                        <a href="#">Terms of use</a>
-                        <a href="#">Support</a>
-                    </div>
-                    <div className="footer-block">
-                        <h1>Contact</h1>
-                        <a href="#">sergpyatko@gmail.com</a>
-                        <a href="#">LinkedIn</a>
-                    </div>
+                    {
+                        footerLinksList.map((item, index) => (
+                            <>
+                                <div className="footer-block" key={index} onMouseOver={() => onFooterMouseOver(index)} onMouseOut={onFooterMouseOut}>
+                                    <h1>{item.title}</h1>
+                                    {item.links.map(linkItem => (
+                                        <a href={linkItem.href}>{linkItem.label}</a>
+                                    ))}
+                                    <div className={`cover-block ${index === currentIndex ? "footer-anim-fade-in" : "footer-anim-fade-out"}`}>
+                                    </div>
+                                </div>
+                               {index +1 === footerLinksList.length ? null :  <hr className="mid-contacts-line"/>}
+                            </>
+                        ))
+                    }
                 </div>
                 <div className="footer-mark">
                     <h2> Piatko Serhii | {new Date().getFullYear()}</h2>

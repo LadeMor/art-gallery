@@ -19,6 +19,7 @@ hr{
     margin-bottom: 10px;
     position: relative;
     overflow: hidden;
+    max-width: 1400px;
 }
 
 .main-image-title{
@@ -151,50 +152,28 @@ hr{
     margin: 0 -10px; 
 }
 
-#artists{
-    background-color: var(--secondary-bg-color);
-    padding-top: 30px;
-    padding-bottom: 50px;
+@media screen and (max-width: 1400px) {
+    #preview-image{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }
 
-.artists-list-title{
-    font-size: 50px;
-    font-weight: 300;
-    margin: 0;
+@media screen and (max-width: 600px) {
+
+
+    .main-image{
+        height: 400px;
+    }
 }
 
-.artists-card{
+@media screen and (max-width: 450px) {
+    .main-image-title{
+        display: none;
+    }
 
-    flex:1;
-    display:flex;
-    flex-direction: row;
-    align-items: start;
-    gap: 20px;
-}
-
-.artists-card-row{
-    display: flex;
-    gap: 20px;
-}
-
-.artists-card-image{
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-}
-
-.artists-card-info{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-}
-
-.artists-card-info a{
-    color:var(--main-text-color);
-    font-size: 18px;
-}
-
-.artists-card-info h3{
-    margin: 0;
+    .main-image-info h1{
+        font-size: 20px;
+        font-weight: 500;
+    }
 }
