@@ -48,8 +48,8 @@ const Footer = () => {
                 <div className="contacts-wrapper">
                     {
                         footerLinksList.map((item, index) => (
-                            <>
-                                <div className="footer-block" key={index} onMouseOver={() => onFooterMouseOver(index)} onMouseOut={onFooterMouseOut}>
+                            <React.Fragment key={index}>
+                                <div className="footer-block" onMouseOver={() => onFooterMouseOver(index)} onMouseOut={onFooterMouseOut}>
                                     <h1>{item.title}</h1>
                                     {item.links.map(linkItem => (
                                         <a href={linkItem.href}>{linkItem.label}</a>
@@ -58,7 +58,7 @@ const Footer = () => {
                                     </div>
                                 </div>
                                {index +1 === footerLinksList.length ? null :  <hr className="mid-contacts-line"/>}
-                            </>
+                            </React.Fragment>
                         ))
                     }
                 </div>
