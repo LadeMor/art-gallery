@@ -61,13 +61,12 @@ header a{
     position: fixed;
     width: 100%;
     height: 100%;
-    z-index: 10;
+    z-index: 9;
 }
+
 
 .close-icon{
     width: 40px;
-   
-    
     cursor: pointer;
 }
 
@@ -105,6 +104,9 @@ header a{
     background-color: var(--main-bg-color);
     padding: 15px 0px 0px 15px;
     transform: translateX(-315px);
+    position: fixed;
+    z-index: 10;
+    border-right: 1px solid grey;
 }
 
 .animation-left-menu-pop-in{
@@ -135,10 +137,49 @@ header a{
     }
 }
 
+.nav-menu-item {
+    border-bottom: 1px solid grey;
+}
+
+.nav-menu-item-description{
+    margin: 0px;
+    height: 0px;
+    overflow: hidden;
+}
+
+.animation-nav-menu-item-description-show{
+    animation: navMenuItemDescriptionShow 0.2s ease-in-out 0s 1 normal forwards;
+}
+
+.animation-nav-menu-item-description-hide{
+    animation: navMenuItemDescriptionHide 0.2s ease-in-out 0s 1 normal forwards;
+}
+
+@keyframes navMenuItemDescriptionShow {
+    0%{
+        height: 0px;
+    }
+
+    100%{
+        height: 100px;
+    }
+}
+
+@keyframes navMenuItemDescriptionHide {
+    0%{
+        height: 100px;
+    }
+
+    100%{
+        height: 0px;
+    }
+}
+
 .nav-menu-item h1{
     margin: 0;
-    border-bottom: 1px solid grey;
     font-weight: 400;
+
+
 }
 
 .nav-menu-item a{
