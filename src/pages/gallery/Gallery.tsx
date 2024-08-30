@@ -4,9 +4,11 @@ import Container from "../../components/container/Container";
 
 import mainImage from "../../assets/images/birmingham-museums-trust-wKlHsooRVbg-unsplash.jpg";
 import parallaxImage from "../../assets/images/parallax-image.jpg";
+import parallaxImage2 from "../../assets/images/parallax-image2.jpg";
 
 import ArtistsList from "../../components/artists-list/ArtistsList";
 import {useScroll, useTransform, motion} from "framer-motion";
+import ImageSlider from "../../components/slider/ImageSlider";
 
 const Gallery = () => {
 
@@ -18,7 +20,7 @@ const Gallery = () => {
         offset:['start end', 'end start']
     })
 
-    const sm = useTransform(scrollYProgress, [0, 1], [0, -300]);
+    const sm = useTransform(scrollYProgress, [0, 1], [0, -600]);
 
     const [currentAnimClass, setCurrentAnimClass] = useState("");
 
@@ -52,10 +54,12 @@ const Gallery = () => {
             </section>
             <section id="parallax">
                 <Container>
-                    <div className="parallax-image-container">
-                        <motion.img style={{y:sm}} ref={title} src={parallaxImage} className="parallax-image"/>
-                        <div className="parallax-image-title">
-                            <h1>Explore art freedom</h1>
+                    <div className="parallax-list">
+                        <div className="parallax-image-container">
+                            <motion.img style={{y:sm}} ref={title} src={parallaxImage} className="parallax-image"/>
+                            <div className="parallax-image-title">
+                                <h1>Explore art freedom</h1>
+                            </div>
                         </div>
                     </div>
                 </Container>

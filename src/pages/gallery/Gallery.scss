@@ -141,6 +141,12 @@ hr{
     position: relative;
 }
 
+.parallax-list{
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
 
 
 .parallax-image-title{
@@ -148,7 +154,6 @@ hr{
     background-color: rgba(0, 0, 0, 0.7);
     width: 100%;
     padding: 20px 10px 20px 10px;
-
 }
 
 .parallax-image-title h1{

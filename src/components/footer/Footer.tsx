@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 
 import "./Footer.scss";
 
@@ -18,7 +18,7 @@ const Footer = () => {
         setCurrentIndex(null);
     }
 
-    const footerLinksList = [
+    const footerLinksList = useMemo(() => [
         {
             title: "Follow",
             links: [
@@ -40,7 +40,7 @@ const Footer = () => {
                 { label: "LinkedIn", href: "#" },
             ]
         },
-    ]
+    ], []);
 
     return (
         <Container>

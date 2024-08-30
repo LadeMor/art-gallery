@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import "./Header.scss";
 
 import { Link } from "react-router-dom";
@@ -28,11 +28,11 @@ const Header = () => {
         setActiveIndex(null);
     }
 
-    const links = [
+    const links = useMemo(() => [
         { label: "Gallery", to: "/", description: "Explore a curated collection of stunning artworks that captivate and inspire, each piece telling its own unique story." },
         { label: "Artists", to: "/artists", description: "Discover the brilliant minds behind the masterpieces, where creativity knows no bounds and each artist leaves their mark on the world" },
         { label: "About me", to: "/about-me", description: "Learn more about the passion and vision driving this artistic journey, and the story behind the creation of this inspiring space." },
-    ]
+    ], [])
 
     const onMenuClick = () => {
         if (isMenuOpen) {

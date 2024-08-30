@@ -1,7 +1,7 @@
 import "./ArtistsList.scss";
 
 import { useAnimate, useInView } from "framer-motion";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useMemo } from "react";
 
 import Container from "../container/Container";
 
@@ -16,20 +16,10 @@ const ArtistsList = () => {
 
     const container = useRef(null);
     const [scope, animate] = useAnimate();
-    const isInView = useInView(scope);
+    const isInView = useInView(container, { once: true });
     const artistElem = useRef<(HTMLDivElement | null)[]>([]);
 
-    useEffect(() => {
-        if(isInView){
-            animate(".artists-card-row", {x: "0px"})
-        }else{
-            animate(".artists-card-row", {x: "600px"})
-        }
-
-      }, [isInView])
-
-
-    const artistsList = [
+    const artistsList = useMemo(() =>  [
         {
             url: eric_orr,
             name: "Eric Orr",
@@ -60,7 +50,7 @@ const ArtistsList = () => {
             name: "Grace Hartigan",
             description: "Critics and historians have called Grace Hartigan both a second-generation Abstract Expressionist painter and a forebear of Pop art, though she was not satisfied with either categorization."
         },
-    ]
+    ], [])
 
 
     const renderArtistsList = (list: any) => {
@@ -68,8 +58,8 @@ const ArtistsList = () => {
         for (let index = 0; index < list.length; index += 2) {
             rowsList.push(<>
                 <hr />
-                <div className="artists-card-row" >
-                    <div className="artists-card">
+                <div className="artists-card-row"  ref={(el) => (artistElem.current[index] = el)}>
+                    <div className={`artists-card ${isInView ? "animations-artists-card" : null}`} style={{animationDelay:`${1 + (0.1 * index)}s` }}>
                         <img src={list[index].url} className="artists-card-image" />
                         <div className="artists-card-info">
                             <div>
@@ -81,7 +71,7 @@ const ArtistsList = () => {
                         </div>
                     </div>
                     <hr className="mid-card-line"/>
-                    <div className="artists-card">
+                    <div className={`artists-card ${isInView ? "animations-artists-card" : null}`} style={{animationDelay:`${1 + (0.1 * index )}s` }}>
                         <img src={list[index+1].url} className="artists-card-image" />
                         <div className="artists-card-info">
                             <div>
@@ -91,18 +81,18 @@ const ArtistsList = () => {
                             <a href="#">View more</a>
                         </div>
                     </div>
-
                 </div>
             </>);
         }
         return rowsList;
     }
 
+
     return (
         <section id="artists" ref={container}>
             <Container>
                 <h1 className="artists-list-title">Discover popular artists</h1>
-                <div className="artists-list-wrapper" ref={scope}>
+                <div className="artists-list-wrapper">
                     {renderArtistsList(artistsList)}
                 </div>
             </Container>

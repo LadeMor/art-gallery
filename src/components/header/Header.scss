@@ -84,13 +84,13 @@ header a{
     }
 
     100%{
-        transform: rotate(180deg);
+        transform: rotate(90deg);
     }
 }
 
 @keyframes closeIconRotateOver {
     0%{
-        transform: rotate(180deg);
+        transform: rotate(90deg);
     }
 
     100%{
