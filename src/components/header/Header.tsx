@@ -7,6 +7,7 @@ import Container from "../container/Container";
 import iconRight from "../../assets/icons/arrow-right-1.svg";
 import closeIcon from "../../assets/icons/close.svg";
 
+import {motion} from "framer-motion";
 
 const Header = () => {
 
@@ -60,7 +61,7 @@ const Header = () => {
     const onCloseIconMouseOut = () => {
         setCloseIconAnimClass("close-icon-rotate-over");
     }
-    
+
     const onMenuItemMouseOver = (index: ID) => {
         setActiveMenuItemIndex(index);
     }
@@ -71,7 +72,6 @@ const Header = () => {
 
     return (
         <React.Fragment>
-
             <div className={`nav-menu ${animClass}`} onClick={onCloseClick} >
                 <img src={closeIcon}
                     className={`close-icon ${closeIconAnimClass}`}
@@ -80,14 +80,14 @@ const Header = () => {
                     onMouseOut={onCloseIconMouseOut} />
                 {links.map((item, index) => (
                     <div className="nav-menu-item" onMouseOver={() => onMenuItemMouseOver(index)}
-                                                    onMouseOut={onMenuItemMouseOut} >
+                        onMouseOut={onMenuItemMouseOut} >
                         <h1>
                             <Link to={item.to} >
                                 {item.label}
                             </Link>
                         </h1>
                         <p className={`nav-menu-item-description ${activeMenuItemIndex === index ?
-                         "animation-nav-menu-item-description-show" : "animation-nav-menu-item-description-hide"}`}
+                            "animation-nav-menu-item-description-show" : "animation-nav-menu-item-description-hide"}`}
                         >{item.description}</p>
                     </div>
                 ))}
@@ -97,7 +97,16 @@ const Header = () => {
             </div>
             <Container>
                 <header>
-                    <h1>Art | Gallery</h1>
+                    <motion.h1
+                    className="box"
+                    initial={{opacity:0, scale: 0.5}}
+                    animate={{opacity:1, scale: 1}}
+                    transition={{
+                        duration:0.8,
+                        delay:0.5,
+                        ease: [0, 0.71, 0.2, 1.01]
+                    }}
+                    >Art | Gallery</motion.h1>
                     <div className="header-links">
                         {links.map((item, index) => (
                             <div className="header-link-wrapper"
@@ -106,11 +115,19 @@ const Header = () => {
                                 key={index}
                             >
                                 <span className="header-link-item">
-                                    <h1>
+                                    <motion.h1 
+                                    className="box"
+                                    initial={{opacity:0, scale: 0.5}}
+                                    animate={{opacity:1, scale: 1}}
+                                    transition={{
+                                        duration:0.8,
+                                        delay:0.7 + index * 0.3,
+                                        ease: [0, 0.71, 0.2, 1.01]
+                                    }}>
                                         <Link to={item.to}>
                                             {item.label}
                                         </Link>
-                                    </h1>
+                                    </motion.h1>
                                     <img src={iconRight} />
                                 </span>
                                 <div className={`header-underline ${index === activeIndex ? "underline-animation" : null}`}></div>
@@ -118,9 +135,16 @@ const Header = () => {
                         ))}
 
                     </div>
-                    <h1 className="menu-button" onClick={onMenuClick}>
+                    <motion.h1 onClick={onMenuClick} className="box menu-button"
+                                    initial={{opacity:0, translateY: "-100px"}}
+                                    animate={{opacity:1,translateY: "-0px"}}
+                                    transition={{
+                                        duration:0.8,
+                                        delay:2,
+                                        ease: [0, 0.71, 0.2, 1.01]
+                                    }}>
                         Menu
-                    </h1>
+                    </motion.h1>
                 </header >
             </Container>
         </React.Fragment>

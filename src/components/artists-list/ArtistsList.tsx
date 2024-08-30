@@ -1,7 +1,9 @@
 import "./ArtistsList.scss";
 
-import Container from "../container/Container";
+import { useAnimate, useInView } from "framer-motion";
+import { useRef, useEffect } from "react";
 
+import Container from "../container/Container";
 
 import eric_orr from "../../assets/images/artists/ Eric_Orr.webp";
 import grace_hartigan from "../../assets/images/artists/ grace_hartigan.webp";
@@ -11,6 +13,21 @@ import mohsen_vaziri from "../../assets/images/artists/Mohsen_Vaziri_Moghaddam.w
 import salvador_dali from "../../assets/images/artists/Salvador_Dalí.webp";
 
 const ArtistsList = () => {
+
+    const container = useRef(null);
+    const [scope, animate] = useAnimate();
+    const isInView = useInView(scope);
+    const artistElem = useRef<(HTMLDivElement | null)[]>([]);
+
+    useEffect(() => {
+        if(isInView){
+            animate(".artists-card-row", {x: "0px"})
+        }else{
+            animate(".artists-card-row", {x: "600px"})
+        }
+
+      }, [isInView])
+
 
     const artistsList = [
         {
@@ -45,14 +62,13 @@ const ArtistsList = () => {
         },
     ]
 
-    
 
     const renderArtistsList = (list: any) => {
         let rowsList = [];
         for (let index = 0; index < list.length; index += 2) {
             rowsList.push(<>
                 <hr />
-                <div className="artists-card-row">
+                <div className="artists-card-row" >
                     <div className="artists-card">
                         <img src={list[index].url} className="artists-card-image" />
                         <div className="artists-card-info">
@@ -83,10 +99,10 @@ const ArtistsList = () => {
     }
 
     return (
-        <section id="artists">
+        <section id="artists" ref={container}>
             <Container>
                 <h1 className="artists-list-title">Discover popular artists</h1>
-                <div className="artists-list-wrapper">
+                <div className="artists-list-wrapper" ref={scope}>
                     {renderArtistsList(artistsList)}
                 </div>
             </Container>

@@ -37,7 +37,7 @@ const Gallery = () => {
                     <div className="main-image-wrapper"
                         onMouseOver={onMainImageMouseOver}
                         onMouseOut={onMainImageMouseOut}>
-                        <img className="main-image" src={mainImage} />
+                        <img className="main-image" src={mainImage} loading="lazy"/>
                         <div
                             className={`main-image-title ${currentAnimClass}`}>
                             <h1>Spring mountain</h1>
