@@ -131,3 +131,31 @@ hr{
         font-weight: 500;
     }
 }
+
+
+.parallax-image-container{
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    height: 500px;
+    position: relative;
+}
+
+.parallax-image{
+    // filter: blur(5px);
+}
+
+.parallax-image-title{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    padding: 20px 10px 20px 10px;
+
+}
+
+.parallax-image-title h1{
+    margin: 0;
+    font-size: 50px;
+    font-weight: 300;
+    color: aliceblue;
+}

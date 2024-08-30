@@ -1,12 +1,24 @@
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useState, useRef, useLayoutEffect } from "react";
 import "./Gallery.scss";
 import Container from "../../components/container/Container";
-import ImageSlider from "../../components/slider/ImageSlider";
 
 import mainImage from "../../assets/images/birmingham-museums-trust-wKlHsooRVbg-unsplash.jpg";
+import parallaxImage from "../../assets/images/parallax-image.jpg";
+
 import ArtistsList from "../../components/artists-list/ArtistsList";
+import {useScroll, useTransform, motion} from "framer-motion";
 
 const Gallery = () => {
+
+    const container = useRef(null);
+    const title = useRef(null);
+
+    const {scrollYProgress} = useScroll({
+        target:container,
+        offset:['start end', 'end start']
+    })
+
+    const sm = useTransform(scrollYProgress, [0, 1], [0, -300]);
 
     const [currentAnimClass, setCurrentAnimClass] = useState("");
 
@@ -19,7 +31,7 @@ const Gallery = () => {
     }
 
     return (
-        <>
+        <div ref={container}>
             <section id="preview-image">
                 <Container>
                     <div className="main-image-wrapper"
@@ -38,11 +50,19 @@ const Gallery = () => {
                     </div>
                 </Container>
             </section>
-            <section id="image-slider">
-                {/* <ImageSlider/> */}
+            <section id="parallax">
+                <Container>
+                    <div className="parallax-image-container">
+                        <motion.img style={{y:sm}} ref={title} src={parallaxImage} className="parallax-image"/>
+                        <div className="parallax-image-title">
+                            <h1>Explore art freedom</h1>
+                        </div>
+                    </div>
+                </Container>
+
             </section>
-            <ArtistsList/>
-        </>
+            <ArtistsList />
+        </div>
     );
 }
 
