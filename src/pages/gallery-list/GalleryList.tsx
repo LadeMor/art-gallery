@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import Masonry from 'react-masonry-css';
 
 import Container from "../../components/container/Container";
@@ -21,6 +21,10 @@ import pic13 from "../../assets/images/art-gallery/pic13.webp";
 
 
 const GalleryList = () => {
+
+    type ID = null | number;
+
+    const [currentIndex, setCurrentIndex] = useState<ID>(null);
 
     const artList = useMemo(() => [
         { url: pic1, label: "Art 1", description: "60 x 70 cm / 23.62 x 27.56 in, oil / canvas Tetiana Shuliak", price: 315700 },
@@ -50,6 +54,14 @@ const GalleryList = () => {
         return (price / 100).toString();
     }
 
+    const onArtCardMouseOver = (index: ID) => {
+        setCurrentIndex(index);
+    }
+
+    const onArtCardMouseOut = () => {
+        setCurrentIndex(null);
+    }
+
     return (
         <Container>
             <Masonry
@@ -57,8 +69,12 @@ const GalleryList = () => {
                 className="my-masonry-grid"
                 columnClassName="my-masonry-grid_column">
                 {artList.map((item, index) => (
-                    <div className="art-list-card" style={{animationDelay:`${0.3 + (0.1 * index)}s`}}>
-                        <img src={item.url} className="art-list-image-card" />
+                    <div className="art-list-card" style={{animationDelay:`${0.3 + (0.1 * index)}s`}}
+                    onMouseOver={() => onArtCardMouseOver(index)}
+                    onMouseOut={onArtCardMouseOut}>
+                        <div className="art-list-image-container">
+                            <img src={item.url} className={`art-list-image-card ${currentIndex === index ? "animation-zoom-in-card-image" : "animation-zoom-out-card-image"}`} />
+                        </div>
                         <div className="art-list-card-info">
                             <h3>{item.label}</h3>
                             <p>{item.description}</p>
