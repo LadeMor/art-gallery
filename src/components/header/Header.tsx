@@ -29,8 +29,8 @@ const Header = () => {
     }
 
     const links = useMemo(() => [
-        { label: "Gallery", to: "/", description: "Explore a curated collection of stunning artworks that captivate and inspire, each piece telling its own unique story." },
-        { label: "Artists", to: "/artists", description: "Discover the brilliant minds behind the masterpieces, where creativity knows no bounds and each artist leaves their mark on the world" },
+        { label: "Main", to: "/", description: "Explore a curated collection of stunning artworks that captivate and inspire, each piece telling its own unique story." },
+        { label: "Gallery", to: "/gallery", description: "Discover the brilliant minds behind the masterpieces, where creativity knows no bounds and each artist leaves their mark on the world" },
         { label: "About me", to: "/about-me", description: "Learn more about the passion and vision driving this artistic journey, and the story behind the creation of this inspiring space." },
     ], [])
 

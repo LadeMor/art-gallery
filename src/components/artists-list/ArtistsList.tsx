@@ -55,11 +55,13 @@ const ArtistsList = () => {
 
     const renderArtistsList = (list: any) => {
         let rowsList = [];
+        let cardAnimDelay = 0;
         for (let index = 0; index < list.length; index += 2) {
+            cardAnimDelay++;
             rowsList.push(<>
                 <hr />
                 <div className="artists-card-row"  ref={(el) => (artistElem.current[index] = el)}>
-                    <div className={`artists-card ${isInView ? "animations-artists-card" : null}`} style={{animationDelay:`${1 + (0.1 * index)}s` }}>
+                    <div className={`artists-card ${isInView ? "animations-artists-card" : null}`} style={{animationDelay:`${1 + (0.1 * cardAnimDelay)}s` }}>
                         <img src={list[index].url} className="artists-card-image" />
                         <div className="artists-card-info">
                             <div>
@@ -71,7 +73,7 @@ const ArtistsList = () => {
                         </div>
                     </div>
                     <hr className="mid-card-line"/>
-                    <div className={`artists-card ${isInView ? "animations-artists-card" : null}`} style={{animationDelay:`${1 + (0.1 * index )}s` }}>
+                    <div className={`artists-card ${isInView ? "animations-artists-card" : null}`} style={{animationDelay:`${1 + (0.1 * cardAnimDelay )}s` }}>
                         <img src={list[index+1].url} className="artists-card-image" />
                         <div className="artists-card-info">
                             <div>
