@@ -20,8 +20,21 @@ hr{
     position: relative;
     overflow: hidden;
     max-width: 1400px;
+    transform: translateX(-1000px);
+    animation: mainImagePopUp 0.7s ease-in-out 0s 1 normal forwards;
 }
 
+@keyframes mainImagePopUp {
+    0%{
+        transform: translateX(-1000px);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
 
 .main-image-title{
     position: absolute;
@@ -82,7 +95,21 @@ hr{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-   
+    transform: translateY(20px);
+    opacity: 0;
+    animation: mainImageInfoPopUp 0.5s ease-in-out 0.5s 1 normal forwards;
+}
+
+@keyframes mainImageInfoPopUp {
+    0%{
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
 }
 
 .main-image-info h1{

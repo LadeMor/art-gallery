@@ -5,7 +5,7 @@ import Header from './components/header/Header';
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 import Gallery from './pages/gallery/Gallery';
 import GalleryList from './pages/gallery-list/GalleryList';
-import AboutMe from './pages/about-me/AboutMe';
+import ContactUs from './pages/contact-us/ContactUs';
 import Footer from './components/footer/Footer';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Gallery/>}/>
               <Route path="/gallery" element={<GalleryList/>}/>
-              <Route path="/about-me" element={<AboutMe/>}/>
+              <Route path="/contact-us" element={<ContactUs/>}/>
             </Routes>
             <Footer/>
           </Router>
