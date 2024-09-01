@@ -73,24 +73,30 @@ const Header = () => {
     return (
         <React.Fragment>
             <div className={`nav-menu ${animClass}`} onClick={onCloseClick} >
-                <img src={closeIcon}
-                    className={`close-icon ${closeIconAnimClass}`}
-                    onClick={onCloseClick}
-                    onMouseOver={onCloseIconMouseOver}
-                    onMouseOut={onCloseIconMouseOut} />
-                {links.map((item, index) => (
-                    <div className="nav-menu-item" onMouseOver={() => onMenuItemMouseOver(index)}
-                        onMouseOut={onMenuItemMouseOut} >
-                        <h1>
-                            <Link to={item.to} >
-                                {item.label}
-                            </Link>
-                        </h1>
-                        <p className={`nav-menu-item-description ${activeMenuItemIndex === index ?
-                            "animation-nav-menu-item-description-show" : "animation-nav-menu-item-description-hide"}`}
-                        >{item.description}</p>
-                    </div>
-                ))}
+                <div className="nav-menu-links">
+                    <img src={closeIcon}
+                        className={`close-icon ${closeIconAnimClass}`}
+                        onClick={onCloseClick}
+                        onMouseOver={onCloseIconMouseOver}
+                        onMouseOut={onCloseIconMouseOut} />
+                    {links.map((item, index) => (
+                        <div className="nav-menu-item" onMouseOver={() => onMenuItemMouseOver(index)}
+                            onMouseOut={onMenuItemMouseOut} >
+                            <h1>
+                                <Link to={item.to} >
+                                    {item.label}
+                                </Link>
+                            </h1>
+                            <p className={`nav-menu-item-description ${activeMenuItemIndex === index ?
+                                "animation-nav-menu-item-description-show" : "animation-nav-menu-item-description-hide"}`}
+                            >{item.description}</p>
+                        </div>
+                    ))}
+                </div>
+              <div className="nav-menu-bottom">
+                <hr/>
+                <h2>Piatko Serhii | {new Date().getFullYear()}</h2>
+              </div>
             </div>
             <div className="dark-panel" style={{ display: isMenuOpen ? "block" : "none" }} onClick={onCloseClick}>
 

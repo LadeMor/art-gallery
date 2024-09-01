@@ -1,0 +1,166 @@
+#contact-us{
+    /* height: 100vh; */
+    margin-bottom: 30px;
+}
+
+.form-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+}
+
+.main-contact-us-title{
+    font-size: 60px;
+    font-weight: 400;
+    opacity: 0;
+    transform: translateX(-400px);
+    animation: textFadeIn 0.6s ease-in-out 0.2s 1 normal forwards;
+}
+
+.email-text{
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.form-block-text{
+    flex:1;
+    padding-right: 10px;
+    border-right: 1px solid grey;
+}
+
+.form-block-text p{
+    font-size: 30px;
+    opacity: 0;
+    transform: translateX(-400px);
+    animation: textFadeIn 0.6s ease-in-out 0.2s 1 normal forwards;
+}
+
+.form-block{
+    flex: 1;
+}
+
+.form-block form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.name-inputs{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.form-input{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.form-input input{
+    font-size: 20px;
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    background-color: var(--secondary-bg-color);
+}
+
+form label{
+    font-size: 20px;
+}
+
+.form-textarea{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.form-textarea textarea{
+    font-size: 20px;
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    background-color: var(--secondary-bg-color);
+    resize: none;
+    height: 100px;
+}
+
+form button{
+    font-size: 24px;
+    display: inline;
+    padding: 10px 18px 10px 18px;
+    border-radius: 10px;
+    background-color: var(--secondary-bg-color);
+    border: 1px solid black;
+    transition: 0.2s;
+    transform: translateY(-3px);
+    box-shadow: 0px 5px 3px grey;
+}
+
+form button:hover{
+    background-color: black;
+    color: white;
+}
+
+form button:active{
+    transform: translateY(0px);
+    box-shadow: 0px 0px 0px grey;
+}
+
+.animation-input-fade-in{
+    opacity: 0;
+    transform: translateY(30px);
+    animation: inputFadeIn 0.4s ease-in-out 0s 1 normal forwards;
+}
+
+@keyframes textFadeIn {
+    0%{
+        opacity: 0;
+        transform: translateX(-400px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes inputFadeIn {
+    0%{
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    #contact-us{
+        padding: 0px 10px 0px 10px;
+    }
+}
+
+@media screen and (max-width: 1060px) {
+    .form-wrapper{
+        flex-direction: column;
+    }
+
+    #contact-us{
+        padding: 0px 30px 0px 30px;
+    }
+
+    .form-block-text{
+        border: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .name-inputs{
+        flex-direction: column;
+    }
+}

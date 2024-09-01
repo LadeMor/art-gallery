@@ -174,6 +174,9 @@ hr{
     gap: 100px;
 }
 
+.parallax-image{
+    width: 100%;
+}
 
 
 .parallax-image-title{
@@ -188,4 +191,24 @@ hr{
     font-size: 50px;
     font-weight: 300;
     color: aliceblue;
+}
+
+@media screen and (max-width: 1000px) {
+    #parallax{
+        padding-left: 0px 10px 0px 10px;
+    }
+
+    .parallax-image-container{
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .parallax-image-title h1{
+        font-size: 35px;
+    }
+
+    .parallax-image{
+        bottom: 0px;
+    }
 }

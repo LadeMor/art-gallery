@@ -92,8 +92,26 @@
     }
   }
 
+  @media screen and (max-width: 900px) {
+    .art-list-image-card{
+      width: 300px;
+    }
+
+    .art-list-image-container{
+      overflow: hidden;
+      width: 300px;
+      margin-bottom: 20px;
+    }
+  }
+
   @media screen and (max-width: 460px) {
     .art-list-image-card{
       width: 300px;
+    }
+
+    .art-list-image-container{
+      overflow: hidden;
+      width: 300px;
+      margin-bottom: 20px;
     }
   }
