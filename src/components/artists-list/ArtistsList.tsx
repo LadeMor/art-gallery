@@ -1,4 +1,4 @@
-import "./ArtistsList.scss";
+import "./ArtistsList.css";
 
 import { useAnimate, useInView } from "framer-motion";
 import { useRef, useEffect, useMemo } from "react";

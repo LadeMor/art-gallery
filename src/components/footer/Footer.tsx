@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
 
-import "./Footer.scss";
+import "./Footer.css";
 
 import Container from "../container/Container";
 

@@ -1,5 +1,5 @@
 import React, { ReactNode, useState, useRef, useLayoutEffect } from "react";
-import "./Gallery.scss";
+import "./Gallery.css";
 import Container from "../../components/container/Container";
 
 import mainImage from "../../assets/images/birmingham-museums-trust-wKlHsooRVbg-unsplash.jpg";
@@ -8,7 +8,6 @@ import parallaxImage2 from "../../assets/images/parallax-image2.jpg";
 
 import ArtistsList from "../../components/artists-list/ArtistsList";
 import {useScroll, useTransform, motion} from "framer-motion";
-import ImageSlider from "../../components/slider/ImageSlider";
 
 const Gallery = () => {
 

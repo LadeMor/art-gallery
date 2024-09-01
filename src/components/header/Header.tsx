@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import "./Header.scss";
+import "./Header.css";
 
 import { Link } from "react-router-dom";
 import Container from "../container/Container";
