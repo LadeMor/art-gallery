@@ -1,10 +1,9 @@
-import React, { ReactNode, useState, useRef, useLayoutEffect } from "react";
+import { useState, useRef } from "react";
 import "./Gallery.css";
 import Container from "../../components/container/Container";
 
 import mainImage from "../../assets/images/birmingham-museums-trust-wKlHsooRVbg-unsplash.jpg";
 import parallaxImage from "../../assets/images/parallax-image.jpg";
-import parallaxImage2 from "../../assets/images/parallax-image2.jpg";
 
 import ArtistsList from "../../components/artists-list/ArtistsList";
 import {useScroll, useTransform, motion} from "framer-motion";
@@ -38,7 +37,7 @@ const Gallery = () => {
                     <div className="main-image-wrapper"
                         onMouseOver={onMainImageMouseOver}
                         onMouseOut={onMainImageMouseOut}>
-                        <img className="main-image" src={mainImage} loading="lazy"/>
+                        <img className="main-image" src={mainImage} alt="main-art" loading="lazy"/>
                         <div
                             className={`main-image-title ${currentAnimClass}`}>
                             <h1>Spring mountain</h1>
