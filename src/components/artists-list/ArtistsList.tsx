@@ -1,7 +1,7 @@
 import "./ArtistsList.css";
 
-import { useAnimate, useInView } from "framer-motion";
-import { useRef, useEffect, useMemo } from "react";
+import { useInView } from "framer-motion";
+import { useRef, useMemo } from "react";
 
 import Container from "../container/Container";
 
@@ -15,7 +15,6 @@ import salvador_dali from "../../assets/images/artists/Salvador_Dalí.webp";
 const ArtistsList = () => {
 
     const container = useRef(null);
-    const [scope, animate] = useAnimate();
     const isInView = useInView(container, { once: true });
     const artistElem = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -61,26 +60,26 @@ const ArtistsList = () => {
             rowsList.push(<>
                 <hr />
                 <div className="artists-card-row"  ref={(el) => (artistElem.current[index] = el)}>
-                    <div className={`artists-card ${isInView ? "animations-artists-card" : null}`} style={{animationDelay:`${1 + (0.1 * cardAnimDelay)}s` }}>
-                        <img src={list[index].url} className="artists-card-image" />
+                    <div className={`artists-card ${isInView ? "animations-artists-card" : null}`} style={{animationDelay:`${0.5 + (0.1 * cardAnimDelay)}s` }}>
+                        <img src={list[index].url} alt={`artist${index}`} className="artists-card-image" />
                         <div className="artists-card-info">
                             <div>
                                 <h3>(Eric Orr)</h3>
                                 <p>Eric Orr was one of the pioneering figures of the Light and Space movement.</p>
                             </div>
-                            <a href="#">View more</a>
+                            <a href="/">View more</a>
                             
                         </div>
                     </div>
                     <hr className="mid-card-line"/>
-                    <div className={`artists-card ${isInView ? "animations-artists-card" : null}`} style={{animationDelay:`${1 + (0.1 * cardAnimDelay )}s` }}>
-                        <img src={list[index+1].url} className="artists-card-image" />
+                    <div className={`artists-card ${isInView ? "animations-artists-card" : null}`} style={{animationDelay:`${0.5 + (0.1 * cardAnimDelay )}s` }}>
+                        <img src={list[index+1].url} alt={`artist${index+1}`} className="artists-card-image" />
                         <div className="artists-card-info">
                             <div>
                                 <h3>(Grace Hartigan)</h3>
                                 <p>Critics and historians have called Grace Hartigan both a second-generation Abstract Expressionist painter and a forebear of Pop art, though she was not satisfied with either categorization.</p>
                             </div>
-                            <a href="#">View more</a>
+                            <a href="/">View more</a>
                         </div>
                     </div>
                 </div>

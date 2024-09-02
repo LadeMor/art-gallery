@@ -41,12 +41,12 @@ const Gallery = () => {
                         <div
                             className={`main-image-title ${currentAnimClass}`}>
                             <h1>Spring mountain</h1>
-                            <a href="#">View Samuel Gordon artist</a>
+                            <a href="/">View Samuel Gordon artist</a>
                         </div>
                     </div>
                     <div className="main-image-info">
                         <h1>Explore Art gallery online<br />by Serhii Piatko and mark your favorite artworks now</h1>
-                        <a href="#">View artists</a>
+                        <a href="/">View artists</a>
                     </div>
                 </Container>
             </section>

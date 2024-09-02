@@ -75,6 +75,7 @@ const Header = () => {
             <div className={`nav-menu ${animClass}`} onClick={onCloseClick} >
                 <div className="nav-menu-links">
                     <img src={closeIcon}
+                        alt="close-icon"
                         className={`close-icon ${closeIconAnimClass}`}
                         onClick={onCloseClick}
                         onMouseOver={onCloseIconMouseOver}
@@ -134,7 +135,7 @@ const Header = () => {
                                             {item.label}
                                         </Link>
                                     </motion.h1>
-                                    <img src={iconRight} />
+                                    <img src={iconRight} alt="right-arrow-icon" />
                                 </span>
                                 <div className={`header-underline ${index === activeIndex ? "underline-animation" : null}`}></div>
                             </div>

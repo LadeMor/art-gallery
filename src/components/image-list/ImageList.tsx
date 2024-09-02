@@ -52,7 +52,7 @@ const ImageList: React.FC<ImageListProps> = ({list}) => {
                         onMouseOver={() => onArtCardMouseOver(index)}
                         onMouseOut={onArtCardMouseOut}>
                             <div className="art-list-image-container">
-                                <img src={item.url} className={`art-list-image-card ${currentIndex === index ? "animation-zoom-in-card-image" : "animation-zoom-out-card-image"}`} />
+                                <img src={item.url} alt={`art${index}`} className={`art-list-image-card ${currentIndex === index ? "animation-zoom-in-card-image" : "animation-zoom-out-card-image"}`} />
                             </div>
                             <div className="art-list-card-info">
                                 <h3>{item.label}</h3>
